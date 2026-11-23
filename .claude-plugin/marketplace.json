@@ -9,6 +9,11 @@
       "name": "linear",
       "source": "./linear",
       "description": "Linear MCP server for murmur agents (issues, projects, comments)."
+    },
+    {
+      "name": "pylon",
+      "source": "./pylon",
+      "description": "Pylon MCP server for murmur agents (support issues, accounts, contacts, knowledge base)."
     }
   ]
 }

@@ -20,6 +20,17 @@ Both reference the same environment variable; no token is stored in this repo.
 Deliver that token through a workspace runtime secret mount so it is present
 in the agent process environment.
 
+### `pylon`
+
+The [Pylon MCP server](https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp)
+(streamable HTTP, `https://mcp.usepylon.com`, US region) — support issues,
+accounts, contacts, knowledge base articles.
+
+Auth: same pattern as `linear`, via `PYLON_API_TOKEN` (a Pylon API token from a
+non-Viewer user; a Pylon admin must enable the MCP server under Settings → AI
+Controls → MCP Server). EU-region workspaces would need
+`https://mcp.eu.usepylon.com` instead.
+
 ## Adding to a workspace
 
 ```
@@ -27,6 +38,9 @@ plugins:
   - clone_url: https://github.com/prassoai/example-plugin-market-place
     ref: <pinned-sha-or-branch>
     name: linear
+  - clone_url: https://github.com/prassoai/example-plugin-market-place
+    ref: <pinned-sha-or-branch>   # same ref for every plugin from this repo
+    name: pylon
 ```
 
 ## Layout
@@ -36,4 +50,7 @@ plugins:
 linear/
   .claude-plugin/plugin.json      # plugin manifest
   .mcp.json                       # Linear MCP server declaration
+pylon/
+  .claude-plugin/plugin.json
+  .mcp.json                       # Pylon MCP server declaration
 ```
